@@ -1,9 +1,10 @@
 import * as S from './styles'
+import mitre from '../../../assets/images/mitre.png'
 
 const Header = () => {
   return (
     <S.Header>
-      {/* Conteúdo do componente */}
+      <img src={mitre} alt="Mitre logo" />
     </S.Header>
   )
 }
