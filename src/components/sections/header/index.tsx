@@ -10,7 +10,6 @@ const Header = () => {
           {/* Logo e Nome da Agência */}
           <S.Logo href="/">
             <img src={mitre} alt="Mitre logo" />
-            <S.LogoText>Mitre<S.LogoSpan>Digital</S.LogoSpan></S.LogoText>
           </S.Logo>
           
           {/* Navegação Principal */}

@@ -2,16 +2,15 @@
 import styled from 'styled-components';
 import { colors, breakpoints } from '../../../../styles'; 
 
-// Header Fixo, Moderno e Efeito Glassmorphism (Semi-transparente)
 export const Header = styled.header`
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
-    backdrop-filter: blur(8px); /* Efeito de desfoque moderno (Glassmorphism) */
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid ${colors.lightGray}20; 
-    padding: 20px 0; /* Padding ligeiramente menor para visual mais 'sharp' */
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais visível para flutuar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 `;
 
 export const HeaderContent = styled.div`
@@ -26,7 +25,7 @@ export const HeaderContent = styled.div`
     }
 `;
 
-// Estilo do Logo (Mantido o destaque no nome)
+// Estilo do Logo - Foco na Imagem
 export const Logo = styled.a`
     display: flex;
     align-items: center;
@@ -34,85 +33,75 @@ export const Logo = styled.a`
     transition: opacity 0.3s ease;
 
     img {
-        height: 36px; /* Levemente maior para destaque */
-        margin-right: 8px;
+        height: 58px; /* Tamanho ajustado para se encaixar melhor no header */
+        width: auto;
     }
+    
+    /* Removemos LogoText e LogoSpan se a imagem já tiver o texto "MITRE" */
 
     &:hover {
         opacity: 0.8;
     }
 `;
 
-export const LogoText = styled.span`
-    font-size: 26px; /* Tamanho maior */
-    font-weight: 800; /* Peso da fonte mais ousado */
-    color: ${colors.text};
-`;
-
-export const LogoSpan = styled.span`
-    color: ${colors.primary};
-    margin-left: 2px;
-    font-weight: 400; /* Peso mais leve para o toque moderno */
-`;
-
 // Navegação
 export const HeaderNav = styled.nav`
     display: flex;
     align-items: center;
-    gap: 36px; /* Espaçamento levemente ajustado */
+    gap: 36px;
 `;
 
 export const HeaderNavItem = styled.a`
     text-decoration: none;
     color: ${colors.text};
-    font-size: 15px; /* Tamanho levemente menor para elegância */
+    font-size: 15px;
     font-weight: 500;
-    position: relative;
     transition: color 0.3s ease;
-    padding: 4px 0; /* Adicionado padding vertical para área de clique */
+    padding: 4px 0; 
+    position: relative; /* Necessário para o novo efeito */
 
     &:hover {
         color: ${colors.primary};
     }
     
-    /* Indicador sutil de hover/ativo - A linha de baixo moderna */
+    /* Novo Efeito de Destaque no Hover (Linha Sutil) */
     &:after {
         content: '';
         position: absolute;
+        bottom: 0;
+        left: 50%;
         width: 0;
         height: 2px;
-        display: block;
-        margin-top: 5px;
-        right: 0;
-        background: ${colors.primary};
-        transition: width 0.3s ease, right 0.3s ease;
+        background: ${colors.primary}; /* Cor principal */
+        transition: width 0.3s ease, left 0.3s ease;
     }
 
     &:hover:after,
     &.active:after {
         width: 100%;
-        right: 0;
         left: 0;
-        transition: width 0.3s ease;
     }
 `;
 
-// Botão de Contato (CTA) - Estilo Pill (Cápsula)
+// Botão de Contato (CTA) - INJETANDO O DEGRADÊ
 export const ContactButton = styled.span`
-    background-color: ${colors.primary};
+    /* Substitui a cor sólida pelo degradê da logo */
+    background: linear-gradient(90deg, ${colors.primary} 0%, ${colors.secondary} 100%);
     color: ${colors.white};
     padding: 10px 24px;
-    border-radius: 50px; /* Borda curva para o visual de "cápsula" moderno */
+    border-radius: 10px;
     font-weight: 600;
     font-size: 15px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     display: inline-block;
     cursor: pointer;
-    border: 2px solid transparent; /* Para evitar "jump" no hover */
+    border: none; /* Remove a borda */
+    box-shadow: 0 4px 15px rgba(0, 56, 216, 0.4);
 
     &:hover {
-        background-color: ${colors.secondary};
-        /* Sombra sutil para indicar profundidade/ação */
-        box-shadow: 0 4px 15px rgba(0, 56, 216, 0.4); 
+        /* Aumenta a intensidade do shadow para o hover */
+        box-shadow: 0 6px 20px rgba(0, 56, 216, 0.6); 
+        transform: translateY(-1px);
+        /* Não muda o background, apenas o shadow */
     }
 `;
