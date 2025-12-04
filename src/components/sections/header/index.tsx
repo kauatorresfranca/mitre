@@ -14,9 +14,9 @@ const Header = () => {
           
           {/* Navegação Principal */}
           <S.HeaderNav>
-            <S.HeaderNavItem href="#services">Serviços</S.HeaderNavItem>
-            <S.HeaderNavItem href="#portfolio">Portfólio</S.HeaderNavItem>
-            <S.HeaderNavItem href="#approach">Abordagem</S.HeaderNavItem>
+            <S.HeaderNavItem href="#services" className='effect'>Serviços</S.HeaderNavItem>
+            <S.HeaderNavItem href="#portfolio" className='effect'>Portfólio</S.HeaderNavItem>
+            <S.HeaderNavItem href="#approach" className='effect'>Abordagem</S.HeaderNavItem>
             <S.HeaderNavItem href="#contact">
                 <S.ContactButton>Contato</S.ContactButton> {/* Botão de Destaque */}
             </S.HeaderNavItem>

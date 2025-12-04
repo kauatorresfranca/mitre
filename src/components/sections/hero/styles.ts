@@ -137,11 +137,11 @@ export const SecondaryButton = styled.a`
 /* --- ESTILOS PARA BADGES DE DESTAQUE --- */
 
 export const FeatureBadgesContainer = styled.div`
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
-    gap: 12px; 
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid ${colors.lightGray}30; /* Linha de separação discreta */
+    justify-content: space-around;
+    gap: 12px;
 
     @media (max-width: ${breakpoints.laptop}) {
         justify-content: center;
@@ -161,22 +161,15 @@ export const Badge = styled.div`
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
-
-    /* CONTRASTE: Fundo Azul Semi-transparente e Elegante */
-    /* Usando a cor primária (azul) com 15% de opacidade */
-    background: ${colors.primary}26; /* Hex com opacidade (Ex: #0038d826) */
-    /* OU usando rgba para melhor controle: */
-    /* background: rgba(0, 56, 216, 0.15); */
-    
+    background: rgba(231, 231, 231, 0.32);
     box-shadow: 0 4px 12px rgba(0, 56, 216, 0.15); /* Sombra suave azulada */
-    border: 1px solid ${colors.primary}33; /* Borda sutil azulada */
 
     /* EFEITO AZUL FORTE NO TEXTO E ÍCONES */
     position: relative;
     
     span {
         /* APLICANDO O DEGRADÊ AZUL DA LOGO NO TEXTO */
-        background: linear-gradient(90deg, ${colors.primary}, ${colors.secondary});
+        background: ${colors.text};
         -webkit-background-clip: text; 
         -webkit-text-fill-color: transparent; 
         background-clip: text;

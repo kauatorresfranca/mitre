@@ -65,7 +65,7 @@ export const HeaderNavItem = styled.a`
     }
     
     /* Novo Efeito de Destaque no Hover (Linha Sutil) */
-    &:after {
+    &.effect:after {
         content: '';
         position: absolute;
         bottom: 0;
