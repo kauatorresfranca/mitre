@@ -39,7 +39,7 @@ const CaseStudies = () => {
                 <S.CasesGrid>
                     {cases.map((caseItem, index) => (
                         <S.CaseCard key={index}>
-                            <S.CaseMeta style={{ '--case-color': caseItem.color }}>
+                            <S.CaseMeta>
                                 {caseItem.niche}
                             </S.CaseMeta>
                             <S.CaseTitle>{caseItem.title}</S.CaseTitle>

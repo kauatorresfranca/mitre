@@ -1,11 +1,10 @@
-// src/components/Diferenciais/styles.ts
 import styled from 'styled-components';
 import { colors, breakpoints } from '../../../../styles'; 
 
 export const DiferenciaisSection = styled.section`
     padding: 100px 0;
-    /* Fundo branco limpo para que os cards se destaquem */
-    background-color: ${colors.white}; 
+    /* Fundo suave: azul mais claro (colors.background) */
+    background-color: ${colors.background}; 
     @media (max-width: ${breakpoints.tablet}) {
         padding: 60px 0;
     }
@@ -15,9 +14,6 @@ export const SectionHeader = styled.header`
     text-align: center;
     max-width: 800px;
     margin: 0 auto 60px;
-    @media (max-width: ${breakpoints.tablet}) {
-        margin-bottom: 40px;
-    }
 `;
 
 export const SectionSubtitle = styled.p`
@@ -37,7 +33,7 @@ export const SectionTitle = styled.h2`
     }
 `;
 
-// O mesmo destaque usado na Hero Section
+// O destaque PIKA!
 export const Highlight = styled.span`
     background: linear-gradient(45deg, ${colors.primary}, ${colors.secondary});
     -webkit-background-clip: text; 
@@ -49,10 +45,9 @@ export const Highlight = styled.span`
 
 export const PillarsGrid = styled.div`
     display: grid;
-    /* 4 colunas em desktops, 2 em tablets, 1 em mobile */
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    
+
     @media (max-width: ${breakpoints.laptop}) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -62,53 +57,54 @@ export const PillarsGrid = styled.div`
 `;
 
 export const PillarCard = styled.div`
-    background-color: ${colors.background}; 
+    background-color: ${colors.white}; 
     padding: 30px;
     border-radius: 12px;
-    /* Borda sutil para definir o card */
     border: 1px solid ${colors.lightGray}30;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    
-    /* Efeito de hover "Pika!" */
+
     &:hover {
-        transform: translateY(-8px);
-        /* Sombra mais forte e leve toque de azul na sombra */
-        box-shadow: 0 15px 30px rgba(0, 56, 216, 0.15); 
-        border-color: ${colors.primary};
+        transform: translateY(-5px);
+        /* Foco no azul da marca na sombra (Padrão PIKA!) */
+        box-shadow: 0 10px 25px rgba(0, 56, 216, 0.15); 
     }
 `;
 
 export const IconWrapper = styled.div`
-    font-size: 40px; /* Para os emojis placeholders */
-    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    border-radius: 50%;
     
-    /* TOQUE PIKA! Aplicando degradê no background do ícone */
+    /* TOQUE PIKA! Fundo com degradê para o ícone */
+    background: linear-gradient(45deg, ${colors.primary} 0%, ${colors.secondary} 100%);
+    box-shadow: 0 4px 10px rgba(0, 56, 216, 0.2); 
+    
+    /* Cor do ícone - Oposto ao fundo para contraste */
     svg {
-        background: linear-gradient(45deg, ${colors.primary}, ${colors.secondary});
-        -webkit-background-clip: text; 
-        -webkit-text-fill-color: transparent; 
-        background-clip: text;
-        color: transparent; 
+        color: ${colors.white};
+        transition: transform 0.3s ease;
+    }
+    
+    ${PillarCard}:hover & svg {
+        transform: scale(1.1); /* Animação no ícone ao passar o mouse no card */
     }
 `;
 
 export const CardTitle = styled.h3`
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     color: ${colors.text};
-    margin-bottom: 12px;
-    
-    /* Opcional: Se quiser o título do card com degradê, descomente: */
-    /* background: linear-gradient(45deg, ${colors.primary}, ${colors.secondary});
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text;
-    color: transparent; */
+    margin-bottom: 10px;
+    line-height: 1.3;
 `;
 
 export const CardDescription = styled.p`
     font-size: 16px;
     color: ${colors.lightGray};
-    line-height: 1.6;
+    line-height: 1.5;
 `;

@@ -4,9 +4,7 @@ import Header from "./components/sections/header"
 import Hero from "./components/sections/hero"
 import Services from "./components/sections/services"
 import Testimonials from "./components/sections/testemonials"
-import ImpactMetrics from "./components/sections/impact-Metrics"
 import Diferenciais from "./components/sections/diferenciais"
-import CaseStudies from "./components/sections/case-studies"
 import Cta from "./components/sections/cta"
 
 const App = () => {
@@ -14,9 +12,7 @@ const App = () => {
     <div>
       <Header />
       <Hero />
-      <ImpactMetrics />
       <Diferenciais />
-      <CaseStudies />
       <Services />
       <Testimonials />
       <Cta />
