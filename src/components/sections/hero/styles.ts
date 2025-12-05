@@ -10,7 +10,8 @@ const float = keyframes`
 
 export const Hero = styled.div`
     background-color: ${colors.background};
-    padding: 120px 0; 
+    padding: 120px 0;
+    padding-bottom: 0; 
     min-height: 85vh; 
     display: flex;
     align-items: center;

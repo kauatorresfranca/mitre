@@ -1,19 +1,25 @@
-import AboutMe from "./components/sections/about-me"
 import FAQ from "./components/sections/faq"
 import Footer from "./components/sections/footer"
 import Header from "./components/sections/header"
 import Hero from "./components/sections/hero"
 import Services from "./components/sections/services"
 import Testimonials from "./components/sections/testemonials"
+import ImpactMetrics from "./components/sections/impact-Metrics"
+import Diferenciais from "./components/sections/diferenciais"
+import CaseStudies from "./components/sections/case-studies"
+import Cta from "./components/sections/cta"
 
 const App = () => {
   return (
     <div>
       <Header />
       <Hero />
+      <ImpactMetrics />
+      <Diferenciais />
+      <CaseStudies />
       <Services />
-      <AboutMe />
       <Testimonials />
+      <Cta />
       <FAQ />
       <Footer />
     </div>
