@@ -103,20 +103,24 @@ export const QuoteText = styled.p`
 export const ClientInfo = styled.div`
     display: flex;
     align-items: center;
-    margin-top: auto; /* Alinha no fundo do card */
+    margin-top: auto; /* Garante que fique sempre no rodapé do card */
     padding-top: 15px;
     border-top: 1px solid ${colors.lightGray}20;
-`;
 
-export const AvatarPlaceholder = styled.div`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    /* Fundo suave para placeholder do avatar */
-    background-color: ${colors.lightGray}60; 
-    border: 2px solid ${colors.primary};
-    margin-right: 15px;
-    flex-shrink: 0;
+    img {
+        width: 55px; /* Aumentei um pouco para dar mais destaque */
+        height: 55px;
+        border-radius: 50%;
+        margin-right: 15px;
+        border: 2px solid ${colors.primary};
+        flex-shrink: 0;
+        
+        /* A MÁGICA ESTÁ AQUI: */
+        object-fit: cover; /* Corta a imagem sem distorcer */
+        object-position: center; /* Garante que o rosto fique centralizado */
+        
+        background-color: ${colors.lightGray}; /* Fundo caso a imagem falhe */
+    }
 `;
 
 export const ClientDetails = styled.div`

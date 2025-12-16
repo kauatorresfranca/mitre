@@ -1,25 +1,27 @@
 // src/components/Testimonials/index.tsx
 import * as S from './styles';
-// import { Quote } from 'lucide-react'; // Para o ícone de citação
+import luizImage from '../../../assets/images/luiz.jpeg'; 
+import TicianaImage from '../../../assets/images/ticiana.jpg';
+import RosivangelaImage from '../../../assets/images/rosi.jpg';
 
 const testimonials = [
     {
-        quote: "O site que a MITRE desenvolveu não só superou as expectativas estéticas, como também dobrou nossa taxa de conversão em menos de 60 dias. Finalmente somos a referência que almejávamos!",
-        name: 'Carlos Mendes',
-        role: 'CEO, TechSolutions',
-        avatar: 'carlos-mendes.jpg', // Placeholder
+        quote: "Antes da MITRE, éramos apenas mais um consultório. Hoje, nosso site é uma máquina de fechamentos. O design estratégico não só elevou meu ticket médio, como dobrou minha taxa de conversão em 60 dias. Finalmente temos a presença digital que a excelência do meu trabalho exige.",
+        name: 'Luiz Miguel',
+        role: 'Cirurgião Dentista',
+        avatar: `${luizImage}`,
     },
     {
-        quote: "O processo deles é incrivelmente transparente e focado em resultado. Tirou a dor de cabeça da lentidão e, de fato, aumentou nosso CPL qualificado em 45%. Profissionais 'Pika!'!",
-        name: 'Aline Oliveira',
-        role: 'Diretora de Marketing, LogiFast',
-        avatar: 'aline-oliveira.jpg', // Placeholder
+        quote: "O processo deles é cirúrgico. Eliminamos a lentidão que nos fazia perder leads e otimizamos todo o funil. O resultado foi um aumento de 45% no nosso CPL qualificado. Se você quer parar de brincar de ter um site e quer uma ferramenta de vendas de elite, eles são a escolha.",
+        name: 'Ticiana Moura',
+        role: 'Psicóloga Clínica',
+        avatar: `${TicianaImage}`,
     },
     {
-        quote: "Investimento com retorno garantido. A diferença no Design Estratégico da MITRE é visível: a credibilidade da nossa marca saltou após a entrega da nova Landing Page.",
-        name: 'Bruno Rocha',
-        role: 'Empreendedor Digital',
-        avatar: 'bruno-rocha.jpg', // Placeholder
+        quote: "Investimento com retorno garantido. A diferença no Design Estratégico da MITRE é visível: a credibilidade da nossa marca saltou após a entrega da nova Landing Page. O mercado passou a nos enxergar como a maior referência da região. É outro nível de jogo.",
+        name: 'Rosivangela Maria',
+        role: 'Ambiente de Beleza',
+        avatar: `${RosivangelaImage}`,
     },
 ];
 
@@ -47,7 +49,7 @@ const Testimonials = () => {
                             
                             <S.ClientInfo>
                                 {/* Substituir por imagem real: <img src={testimonial.avatar} alt={testimonial.name} /> */}
-                                <S.AvatarPlaceholder />
+                                <img src={testimonial.avatar} alt={testimonial.name} />
                                 <S.ClientDetails>
                                     <S.ClientName>{testimonial.name}</S.ClientName>
                                     <S.ClientRole>{testimonial.role}</S.ClientRole>
