@@ -33,7 +33,7 @@ const Hero = () => {
                 </S.Badge>
                 <S.Badge>
                     <Zap size={16} />
-                    <span>Design Responsivo</span>
+                    <span>Design Personalizado</span>
                 </S.Badge>
                 <S.Badge>
                     <ShieldCheck size={16} />

@@ -1,245 +1,109 @@
 import styled, { keyframes } from 'styled-components';
-// Importação corrigida (assumindo a estrutura de pastas)
 import { colors, breakpoints } from '../../../../styles'; 
 
 const float = keyframes`
-  0% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
-  50% { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); }
-  100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 `;
 
-export const Hero = styled.div`
+export const Hero = styled.section`
+    padding: 100px 0;
     background-color: ${colors.background};
-    padding: 120px 0;
-    padding-bottom: 0; 
-    min-height: 85vh; 
+    min-height: 85vh;
     display: flex;
     align-items: center;
-
-    @media (max-width: ${breakpoints.tablet}) {
-        padding: 60px 0;
-        min-height: auto;
-    }
+    @media (max-width: ${breakpoints.tablet}) { padding: 60px 0; }
 `;
 
 export const HeroContent = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Layout simétrico e equilibrado */
-    gap: 80px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
     align-items: center;
-
     @media (max-width: ${breakpoints.laptop}) {
         grid-template-columns: 1fr;
-        text-align: left;
-        gap: 50px;
+        text-align: center;
     }
 `;
 
-export const TextContainer = styled.div`
-    @media (max-width: ${breakpoints.laptop}) {
-        order: 2; /* Texto abaixo da ilustração no mobile */
-    }
-`;
+export const TextContainer = styled.div``;
 
-// TÍTULO MODERNO E PODEROSO
 export const Title = styled.h1`
-    font-size: 52px; 
-    font-weight: 800; 
+    font-size: 52px;
+    font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
     color: ${colors.text};
-
-    @media (max-width: ${breakpoints.laptop}) {
-        font-size: 44px;
-        text-align: center;
-    }
-    @media (max-width: ${breakpoints.mobile}) {
-        font-size: 36px;
-    }
+    @media (max-width: ${breakpoints.mobile}) { font-size: 36px; }
 `;
 
-// DESTAQUE COM DEGRADÊ (TOQUE 'PIKA!' DA LOGO)
 export const Highlight = styled.span`
     background: linear-gradient(45deg, ${colors.primary}, ${colors.secondary});
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text;
-    color: transparent; 
-
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 900;
 `;
 
-// Subtítulo
 export const Subtitle = styled.p`
-    font-size: 18px; 
-    color: ${colors.text};
-    line-height: 1.6;
+    font-size: 18px;
     margin-bottom: 32px;
-
-    @media (max-width: ${breakpoints.laptop}) {
-        text-align: center;
-    }
+    color: ${colors.text};
+    opacity: 0.9;
 `;
 
 export const CtaGroup = styled.div`
     display: flex;
-    gap: 16px; 
+    gap: 16px;
     margin-bottom: 40px;
-    
-    @media (max-width: ${breakpoints.laptop}) {
-        justify-content: center;
-    }
-    @media (max-width: ${breakpoints.mobile}) {
-        flex-direction: column;
-        gap: 12px;
-    }
+    @media (max-width: ${breakpoints.laptop}) { justify-content: center; }
+    @media (max-width: ${breakpoints.mobile}) { flex-direction: column; }
 `;
 
-// Botão Principal (CTA Forte com Degradê)
 export const PrimaryButton = styled.a`
-    background: linear-gradient(90deg, ${colors.primary} 0%, ${colors.secondary} 100%);
+    background: linear-gradient(90deg, ${colors.primary}, ${colors.secondary});
     color: ${colors.white};
-    padding: 14px 28px; 
-    border-radius: 10px; 
-    font-size: 16px; 
-    font-weight: 700;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 56, 216, 0.2);
-
-    &:hover {
-        background: linear-gradient(90deg, ${colors.secondary} 0%, ${colors.primary} 100%);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(0, 56, 216, 0.4);
-    }
-`;
-
-// Botão Secundário (Minimalista)
-export const SecondaryButton = styled.a`
-    background-color: transparent;
-    color: ${colors.text};
     padding: 14px 28px;
-    border: 1px solid ${colors.lightGray}; 
     border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 700;
     text-decoration: none;
-
-    &:hover {
-        border-color: ${colors.primary};
-        color: ${colors.primary};
-    }
+    box-shadow: 0 4px 15px ${colors.primaryTransparent};
+    transition: 0.3s;
+    &:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 56, 216, 0.4); }
 `;
 
-/* --- ESTILOS PARA BADGES DE DESTAQUE --- */
+export const SecondaryButton = styled.a`
+    padding: 14px 28px;
+    border: 1px solid ${colors.lightGray};
+    border-radius: 10px;
+    color: ${colors.text};
+    font-weight: 500;
+    text-decoration: none;
+    &:hover { border-color: ${colors.primary}; color: ${colors.primary}; }
+`;
 
 export const FeatureBadgesContainer = styled.div`
-    max-width: 600px;
-    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
     gap: 12px;
-
-    @media (max-width: ${breakpoints.laptop}) {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    @media (max-width: ${breakpoints.mobile}) {
-        gap: 10px;
-    }
+    @media (max-width: ${breakpoints.laptop}) { justify-content: center; flex-wrap: wrap; }
 `;
 
 export const Badge = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+    background: ${colors.white};
     padding: 10px 18px;
-    border-radius: 50px; /* Mantém a Borda de cápsula */
+    border-radius: 50px;
     font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    background: rgba(231, 231, 231, 0.32);
-    box-shadow: 0 4px 12px rgba(0, 56, 216, 0.15); /* Sombra suave azulada */
-
-    /* EFEITO AZUL FORTE NO TEXTO E ÍCONES */
-    position: relative;
-    
-    span {
-        /* APLICANDO O DEGRADÊ AZUL DA LOGO NO TEXTO */
-        background: ${colors.text};
-        -webkit-background-clip: text; 
-        -webkit-text-fill-color: transparent; 
-        background-clip: text;
-        color: transparent; 
-        font-weight: 700; /* Aumentei o peso para contraste */
-    }
-    
-    /* Para Ícones SVG/React (Garantindo o azul forte) */
-    svg {
-        color: ${colors.primary}; 
-    }
-    
-    /* Efeito de hover sutil para interatividade */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    &:hover {
-        transform: translateY(-1px);
-        /* Aumenta a opacidade e a sombra no hover */
-        background: ${colors.primary}33; 
-        box-shadow: 0 6px 15px rgba(0, 56, 216, 0.25);
-    }
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 56, 216, 0.1);
+    svg { color: ${colors.primary}; }
 `;
 
 export const VisualContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    @media (max-width: ${breakpoints.laptop}) {
-        order: 1;
-    }
-`;
-
-// MOCKUP (Mockup com Borda de Degradê)
-export const MockupPlaceholder = styled.div`
-    width: 100%;
-    max-width: 550px;
-    height: 400px;
-    background: ${colors.white};
-    border-radius: 12px;
-    
-    /* Degradê aplicado como borda */
-    border-image-source: linear-gradient(45deg, ${colors.primary}, ${colors.secondary});
-    border-image-slice: 1;
-    border-width: 4px; 
-    border-style: solid;
-
-    position: relative;
-    overflow: hidden;
-    animation: ${float} 6s ease-in-out infinite; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-    /* Simulação de status bar */
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    img {
         width: 100%;
-        height: 10px;
-        background-color: ${colors.text};
-        opacity: 0.1;
-    }
-
-    /* Fundo sutil */
-    background: linear-gradient(to top, ${colors.background} 0%, ${colors.white} 30%);
-    
-    @media (max-width: ${breakpoints.laptop}) {
-        max-width: 80%;
-        height: 300px;
+        max-width: 550px;
+        animation: ${float} 6s ease-in-out infinite;
     }
 `;

@@ -9,17 +9,12 @@ export const breakpoints = {
 }
 
 export const colors = {
-    // Azul Profundo, Forte e Confiável (Substitui o primary)
     primary: '#0038d8', 
-    // Tom de Azul mais claro para 'call to action' ou hover (Contraste e Ação)
+    primaryTransparent: 'rgba(0, 58, 216, 0.2)',
     secondary: '#0054ff', 
-    // Cor de Fundo Limpa para foco no conteúdo
-    background: '#f8f8ff', // Levemente fora do branco puro
-    // Cor do Texto principal (Alto contraste para legibilidade)
+    background: '#f8f8ff',
     text: '#222222', 
-    // Cor de Borda, Linhas, ou Texto Secundário (Suavidade)
-    lightGray: '#aaaaaa', 
-    // Branco para Fundo de Componentes ou Texto em Cima de Cores Escuras
+    lightGray: '#aaaaaa',
     white: '#ffffff', 
 }
 
@@ -39,10 +34,13 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         background-color: ${colors.background};
         color: ${colors.text};
-        scroll-behavior: smooth;
         line-height: 1.6;
     }
 `

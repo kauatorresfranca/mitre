@@ -1,52 +1,33 @@
-// src/components/FAQ/index.tsx
+import { useState } from 'react';
 import * as S from './styles';
-// import { ChevronDown } from 'lucide-react'; // Para o ícone de expansão
+import { ChevronDown } from 'lucide-react';
 
 const questions = [
-    {
-        question: 'Qual o prazo médio de entrega de uma Landing Page de Alta Conversão?',
-        answer: 'Nosso prazo varia de 4 a 6 semanas, dependendo da complexidade do projeto e da agilidade na entrega do conteúdo e feedback do cliente. O foco é performance, não pressa.',
-    },
-    {
-        question: 'O valor do investimento está incluso no diagnóstico gratuito?',
-        answer: 'Não. O diagnóstico gratuito é uma imersão na sua dor e nicho. Ao final, apresentamos um escopo com a solução ideal, que inclui o valor do investimento, baseado nas suas necessidades específicas.',
-    },
-    {
-        question: 'Vocês oferecem suporte pós-lançamento?',
-        answer: 'Sim. Incluímos 30 dias de suporte e garantia após o lançamento. Nosso objetivo é que você atinja a referência do seu nicho, e isso exige monitoramento e eventuais ajustes finos.',
-    },
-    {
-        question: 'É necessário ter o conteúdo e copy prontos antes de começar?',
-        answer: 'Não, mas é altamente recomendado! Embora possamos dar orientações, o ideal é que você tenha a copy que mais conhece sua dor pronta para focarmos apenas na estratégia e design de conversão.',
-    },
+    { question: 'Qual o prazo médio de entrega?', answer: 'Nosso prazo varia de 4 a 6 semanas para garantir a máxima qualidade e performance.' },
+    { question: 'Como funciona o pagamento?', answer: 'Trabalhamos com entrada + entrega ou parcelamento via cartão de crédito.' },
+    { question: 'Tenho suporte após o site pronto?', answer: 'Sim, você tem 30 dias de suporte total para qualquer ajuste ou dúvida técnica.' },
 ];
 
 const FAQ = () => {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
     return (
         <S.FAQSection>
             <div className='container'>
                 <S.SectionHeader>
-                    <S.SectionSubtitle>
-                        A clareza que elimina as últimas dúvidas.
-                    </S.SectionSubtitle>
-                    <S.SectionTitle>
-                        Perguntas Frequentes <S.Highlight>e Nossas Respostas</S.Highlight>
-                    </S.SectionTitle>
+                    <S.SectionTitle>Dúvidas <S.Highlight>Frequentes</S.Highlight></S.SectionTitle>
                 </S.SectionHeader>
-                
                 <S.QuestionsContainer>
                     {questions.map((item, index) => (
-                        <S.QuestionItem key={index}>
-                            <S.Question>
+                        <S.QuestionItem key={index} $active={activeIndex === index}>
+                            <S.Question onClick={() => setActiveIndex(activeIndex === index ? null : index)}>
                                 {item.question}
-                                <S.ToggleIcon>
-                                    {/* <ChevronDown size={20} /> */}
-                                    +
+                                <S.ToggleIcon $active={activeIndex === index}>
+                                    <ChevronDown size={24} />
                                 </S.ToggleIcon>
                             </S.Question>
-                            {/* Assumindo que a resposta só aparece ao clicar (state control) */}
-                            <S.Answer>
-                                {item.answer}
+                            <S.Answer $active={activeIndex === index}>
+                                <p>{item.answer}</p>
                             </S.Answer>
                         </S.QuestionItem>
                     ))}

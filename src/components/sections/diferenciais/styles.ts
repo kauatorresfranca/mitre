@@ -81,12 +81,12 @@ export const IconWrapper = styled.div`
     border-radius: 50%;
     
     /* TOQUE PIKA! Fundo com degradê para o ícone */
-    background: linear-gradient(45deg, ${colors.primary} 0%, ${colors.secondary} 100%);
+    background: ${colors.primaryTransparent};
     box-shadow: 0 4px 10px rgba(0, 56, 216, 0.2); 
     
     /* Cor do ícone - Oposto ao fundo para contraste */
     svg {
-        color: ${colors.white};
+        color: ${colors.primary};
         transition: transform 0.3s ease;
     }
     

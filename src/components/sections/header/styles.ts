@@ -1,107 +1,80 @@
-// src/components/Header/styles.ts
 import styled from 'styled-components';
 import { colors, breakpoints } from '../../../../styles'; 
 
 export const Header = styled.header`
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid ${colors.lightGray}20; 
-    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid ${colors.lightGray}30; 
+    padding: 16px 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 2000;
 `;
 
 export const HeaderContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+`;
+
+export const Logo = styled.a`
+    img { height: 50px; width: auto; }
+`;
+
+export const MobileMenuIcon = styled.div`
+    display: none;
+    cursor: pointer;
+    color: ${colors.primary};
+    @media (max-width: ${breakpoints.tablet}) { display: block; }
+`;
+
+export const HeaderNav = styled.nav<{ $isOpen: boolean }>`
+    display: flex;
+    align-items: center;
+    gap: 32px;
 
     @media (max-width: ${breakpoints.tablet}) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: ${colors.white};
         flex-direction: column;
-        gap: 20px;
+        padding: 40px 0;
+        gap: 24px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease-in-out;
+        opacity: ${props => props.$isOpen ? '1' : '0'};
+        visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+        transform: ${props => props.$isOpen ? 'translateY(0)' : 'translateY(-10px)'};
     }
-`;
-
-// Estilo do Logo - Foco na Imagem
-export const Logo = styled.a`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-
-    img {
-        height: 58px; /* Tamanho ajustado para se encaixar melhor no header */
-        width: auto;
-    }
-    
-    /* Removemos LogoText e LogoSpan se a imagem já tiver o texto "MITRE" */
-
-    &:hover {
-        opacity: 0.8;
-    }
-`;
-
-// Navegação
-export const HeaderNav = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 36px;
 `;
 
 export const HeaderNavItem = styled.a`
-    text-decoration: none;
     color: ${colors.text};
     font-size: 15px;
     font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 4px 0; 
-    position: relative; /* Necessário para o novo efeito */
-
-    &:hover {
-        color: ${colors.primary};
-    }
-    
-    /* Novo Efeito de Destaque no Hover (Linha Sutil) */
+    position: relative;
     &.effect:after {
         content: '';
         position: absolute;
-        bottom: 0;
-        left: 50%;
+        bottom: -4px;
+        left: 0;
         width: 0;
         height: 2px;
-        background: ${colors.primary}; /* Cor principal */
-        transition: width 0.3s ease, left 0.3s ease;
+        background: ${colors.primary};
+        transition: width 0.3s ease;
     }
-
-    &:hover:after,
-    &.active:after {
-        width: 100%;
-        left: 0;
-    }
+    &:hover:after { width: 100%; }
 `;
 
-// Botão de Contato (CTA) - INJETANDO O DEGRADÊ
 export const ContactButton = styled.span`
-    /* Substitui a cor sólida pelo degradê da logo */
     background: linear-gradient(90deg, ${colors.primary} 0%, ${colors.secondary} 100%);
     color: ${colors.white};
-    padding: 10px 24px;
+    padding: 12px 28px;
     border-radius: 10px;
     font-weight: 600;
-    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 56, 216, 0.3);
     transition: all 0.3s ease;
-    display: inline-block;
-    cursor: pointer;
-    border: none; /* Remove a borda */
-    box-shadow: 0 4px 15px rgba(0, 56, 216, 0.4);
-
-    &:hover {
-        /* Aumenta a intensidade do shadow para o hover */
-        box-shadow: 0 6px 20px rgba(0, 56, 216, 0.6); 
-        transform: translateY(-1px);
-        /* Não muda o background, apenas o shadow */
-    }
+    &:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 56, 216, 0.5); }
 `;
