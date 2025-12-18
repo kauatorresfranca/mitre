@@ -1,22 +1,21 @@
-import FAQ from "./components/sections/faq"
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/home'
+import PoliticaPrivacidade from './pages/politica-privacidade'
+import TermoUso from './pages/termos-uso'
 import Footer from "./components/sections/footer"
 import Header from "./components/sections/header"
-import Hero from "./components/sections/hero"
-import Testimonials from "./components/sections/testemonials"
-import Diferenciais from "./components/sections/diferenciais"
-import Pain from "./components/sections/pain"
 
 const App = () => {
   return (
-    <div>
+    <>
       <Header />
-      <Hero />
-      <Pain />
-      <Diferenciais />
-      <Testimonials />
-      <FAQ />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='politica-privacidade' element={<PoliticaPrivacidade />} />
+        <Route path='termos-uso' element={<TermoUso />} />
+      </Routes>
       <Footer />
-    </div>
+    </>
   )
 }
 

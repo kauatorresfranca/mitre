@@ -11,8 +11,8 @@ const links = [
 ];
 
 const legalLinks = [
-    { title: 'Política de Privacidade', href: '/privacy' },
-    { title: 'Termos de Uso', href: '/terms' },
+    { title: 'Política de Privacidade', href: '/politica-privacidade' },
+    { title: 'Termos de Uso', href: '/termos-uso' },
 ];
 
 const Footer = () => {
