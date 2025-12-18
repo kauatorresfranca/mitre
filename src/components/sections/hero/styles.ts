@@ -12,7 +12,10 @@ export const Hero = styled.section`
     min-height: 85vh;
     display: flex;
     align-items: center;
-    @media (max-width: ${breakpoints.tablet}) { padding: 60px 0; }
+    
+    @media (max-width: ${breakpoints.tablet}) {
+        padding: 60px 0; 
+    }
 `;
 
 export const HeroContent = styled.div`
@@ -20,13 +23,20 @@ export const HeroContent = styled.div`
     grid-template-columns: 1.2fr 0.8fr;
     gap: 60px;
     align-items: center;
+    
     @media (max-width: ${breakpoints.laptop}) {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
 `;
 
-export const TextContainer = styled.div``;
+export const TextContainer = styled.div`
+    /* No mobile/laptop, este container passa a ser o segundo */
+    @media (max-width: ${breakpoints.laptop}) {
+        order: 2;
+    }
+`;
 
 export const Title = styled.h1`
     font-size: 52px;
@@ -101,9 +111,20 @@ export const Badge = styled.div`
 `;
 
 export const VisualContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: ${breakpoints.laptop}) {
+        order: 1;
+    }
+
     img {
         width: 100%;
         max-width: 550px;
         animation: ${float} 6s ease-in-out infinite;
+
+        @media (max-width: ${breakpoints.laptop}) {
+            max-width: 400px; /* Reduzi um pouco para não ocupar a tela toda no celular */
+        }
     }
 `;

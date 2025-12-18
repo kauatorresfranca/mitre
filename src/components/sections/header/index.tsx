@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import * as S from './styles';
 import mitre from '../../../assets/images/mitre.png';
-import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <S.Header>
+    <S.Header $isOpen={isMenuOpen}>
       <div className='container'>
         <S.HeaderContent>
           <S.Logo href="/">
@@ -15,18 +14,33 @@ const Header = () => {
           </S.Logo>
           
           <S.MobileMenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            <S.HamburgerIcon $isOpen={isMenuOpen}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </S.HamburgerIcon>
           </S.MobileMenuIcon>
 
-          <S.HeaderNav $isOpen={isMenuOpen}>
-            <S.HeaderNavItem href="#services" className='effect' onClick={() => setIsMenuOpen(false)}>Serviços</S.HeaderNavItem>
-            <S.HeaderNavItem href="#portfolio" className='effect' onClick={() => setIsMenuOpen(false)}>Portfólio</S.HeaderNavItem>
-            <S.HeaderNavItem href="#approach" className='effect' onClick={() => setIsMenuOpen(false)}>Abordagem</S.HeaderNavItem>
-            <S.HeaderNavItem href="#contact" onClick={() => setIsMenuOpen(false)}>
+          {/* Navigation para Desktop */}
+          <S.DesktopNav>
+            <S.HeaderNavItem href="#services" className='effect'>Serviços</S.HeaderNavItem>
+            <S.HeaderNavItem href="#portfolio" className='effect'>Portfólio</S.HeaderNavItem>
+            <S.HeaderNavItem href="#approach" className='effect'>Abordagem</S.HeaderNavItem>
+            <S.HeaderNavItem href="#contact">
                 <S.ContactButton>Contato</S.ContactButton>
             </S.HeaderNavItem>
-          </S.HeaderNav>
+          </S.DesktopNav>
         </S.HeaderContent>
+
+        {/* Navigation para Mobile (Expansível) */}
+        <S.MobileNav $isOpen={isMenuOpen}>
+          <S.HeaderNavItem href="#services" onClick={() => setIsMenuOpen(false)}>Serviços</S.HeaderNavItem>
+          <S.HeaderNavItem href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfólio</S.HeaderNavItem>
+          <S.HeaderNavItem href="#approach" onClick={() => setIsMenuOpen(false)}>Abordagem</S.HeaderNavItem>
+          <S.HeaderNavItem href="#contact" onClick={() => setIsMenuOpen(false)}>
+              <S.ContactButton>Contato</S.ContactButton>
+          </S.HeaderNavItem>
+        </S.MobileNav>
       </div>
     </S.Header>
   );
